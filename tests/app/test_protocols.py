@@ -4,7 +4,6 @@
 Test Protocols in the CLI app.
 """
 
-from __future__ import absolute_import, unicode_literals
 import logging
 
 import pytest

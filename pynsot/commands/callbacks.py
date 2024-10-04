@@ -3,15 +3,11 @@
 """
 Callbacks used in handling command plugins.
 """
-from __future__ import unicode_literals
-from __future__ import absolute_import
+
 import ast
 import click
 import csv
 import logging
-
-from six import string_types
-import six
 
 
 log = logging.getLogger(__name__)
@@ -80,7 +76,7 @@ def transform_attributes(ctx, param, value):
     log.debug('TRANSFORM_ATTRIBUTES [IN]: %r' % (value,))
 
     # If this is a simple string, make it a list.
-    if isinstance(value, string_types):
+    if isinstance(value, str):
         value = [value]
 
     # Flatten the attributes using a set to eliminate any duplicates.
@@ -164,13 +160,13 @@ def process_bulk_add(ctx, param, value):
 
         # Transform True, False into booleans
         log.debug('FILE ROW: %r', row)
-        for key, val in six.iteritems(row):
+        for key, val in row.items():
             # Don't evaluate dicts
             if isinstance(val, dict):
                 continue
 
             # Evaluate strings and if they are booleans, convert them.
-            if not isinstance(val, string_types):
+            if not isinstance(val, str):
                 msg = 'Error parsing file on line %d' % (lineno,)
                 raise click.BadParameter(msg)
             if val.title() in ('True', 'False'):
