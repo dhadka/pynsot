@@ -4,8 +4,6 @@
 Test the CLI app.
 """
 
-from __future__ import unicode_literals
-from __future__ import absolute_import
 import logging
 
 import pytest
@@ -311,7 +309,7 @@ def test_devices_list(site_client):
         # Grep-friendly output (-g/--grep)
         result = runner.run('devices list -a owner=jathan -g')
         expected_output = (
-            u'foo-bar1 owner=jathan\n'
+            'foo-bar1 owner=jathan\n'
             'foo-bar1 hostname=foo-bar1\n'
             'foo-bar1 id=5\n'
             'foo-bar1 site_id=11\n'

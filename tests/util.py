@@ -4,9 +4,6 @@
 Utilities for testing.
 """
 
-from __future__ import unicode_literals
-from __future__ import absolute_import
-from __future__ import print_function
 import collections
 import contextlib
 from itertools import islice
@@ -24,8 +21,6 @@ from pynsot import client
 from pynsot import dotfile
 
 from click.testing import CliRunner as BaseCliRunner
-import six
-from six.moves import range
 
 
 log = logging.getLogger(__name__)
@@ -233,7 +228,7 @@ def generate_attributes(attributes=None, as_dict=True):
         attributes = ATTRIBUTE_DATA
 
     attrs = []
-    for attr_name, attr_values in six.iteritems(attributes):
+    for attr_name, attr_values in attributes.items():
         if random.choice((True, False)):
             attr_value = random.choice(attr_values)
             attrs.append(Attribute(attr_name, attr_value))
@@ -392,5 +387,5 @@ def rando_set_query():
     """Return a random set theory query string."""
     action = rando_set_action()
     return ' '.join(
-        action + '%s=%s' % (k, v) for k, v in six.iteritems(generate_attributes())
+        action + '%s=%s' % (k, v) for k, v in generate_attributes().items()
     )

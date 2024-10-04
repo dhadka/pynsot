@@ -4,7 +4,6 @@
 Sub-command for Circuits
 """
 
-from __future__ import absolute_import, unicode_literals
 import click
 import logging
 

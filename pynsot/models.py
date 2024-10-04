@@ -58,18 +58,15 @@ False
 True
 '''
 
-from __future__ import unicode_literals
-from __future__ import absolute_import
 import logging
-import collections
+from collections.abc import MutableMapping
 from abc import abstractproperty, abstractmethod, ABCMeta
 from netaddr import IPNetwork
 from pynsot.util import get_result
 from pynsot.client import get_api_client
-import six
 
 
-class Resource(six.with_metaclass(ABCMeta, collections.MutableMapping)):
+class Resource(MutableMapping, metaclass=ABCMeta):
     '''Base API Abstraction Models Class
 
     Instances of an API abstraction model represent a single NSoT resource and
