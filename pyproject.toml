@@ -19,8 +19,7 @@ dependencies = [
   "requests>=2.20.0",
   "slumber>=0.7.1",
 ]
-version = "1.4.2"
-#dynamic = ["version"]
+dynamic = ["version"]
 
 [project.urls]
 "Homepage" = "https://github.com/dropbox/pynsot"
@@ -45,7 +44,7 @@ docs = [
 ]
 
 [tool.setuptools.dynamic]
-version = {attr = "pynsot.__version__"}
+version = {attr = "pynsot.version.__version__"}
 
 [project.scripts]
 nsot = "pynsot.app:app"
