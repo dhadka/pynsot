@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, unicode_literals
-
 import pytest
 
 from tests.fixtures import site_client
-from six.moves import map
 
 
 @pytest.fixture

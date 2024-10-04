@@ -4,8 +4,6 @@
 Utilities and stuff.
 """
 
-from __future__ import unicode_literals
-
 import netaddr
 
 

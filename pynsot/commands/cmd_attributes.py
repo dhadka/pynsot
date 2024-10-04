@@ -12,12 +12,10 @@ fundamentally simplified to this::
 
     getattr(ctx.obj, ctx.info_name)(ctx.params)
 """
-from __future__ import unicode_literals
-from __future__ import absolute_import
+
 import click
 import logging
 
-from six import string_types
 from . import callbacks
 
 
@@ -407,7 +405,7 @@ def update(ctx, allow_empty, description, display, id, multi, name, pattern,
         # it's a tuple with 1 or more item, it's been provided.
         if any([
             val in (True, False),
-            isinstance(val, string_types),
+            isinstance(val, str),
             (isinstance(val, tuple) and len(val) > 0)
         ]):
             provided.append(opt)

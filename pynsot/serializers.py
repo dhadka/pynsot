@@ -13,9 +13,6 @@ return objects instead of dicts::
     <Site(id=1, description=u'Foo site', name=u'Foo')>
 """
 
-from __future__ import unicode_literals
-
-from __future__ import absolute_import
 from slumber.serialize import JsonSerializer
 from .import models
 

@@ -4,8 +4,6 @@
 Test the dotfile.
 """
 
-from __future__ import unicode_literals
-from __future__ import absolute_import
 import copy
 import logging
 import os
@@ -92,7 +90,7 @@ class TestDotFile(unittest.TestCase):
         # raises an error as expected.
         err = 'Missing required field: '
         for field in fields:
-            with self.assertRaisesRegexp(dotfile.DotfileError, err + field):
+            with self.assertRaisesRegex(dotfile.DotfileError, err + field):
                 config.read()
                 config.validate_fields(my_config, required_fields)
 

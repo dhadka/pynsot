@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools >= 63.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynsot"
+description = "Python interface for Network Source of Truth (nsot)"
+authors = [
+  { name="Jathan McCollum", email="jathan@dropbox.com" },
+]
+readme = "README.rst"
+license = { file="LICENSE" }
+requires-python = ">= 3.8"
+dependencies = [
+  "click>=7.0.0",
+  "configparser>=4.0.2",
+  "PTable>=0.9.2",
+  "netaddr>=0.7.18",
+  "requests>=2.20.0",
+  "slumber>=0.7.1",
+]
+version = "1.4.2"
+#dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/dropbox/pynsot"
+"Documentation" = "https://pynsot.readthedocs.io/en/latest/"
+"Bug Tracker" = "https://github.com/dropbox/pynsot/issues"
+
+[project.optional-dependencies]
+test = [
+  "faker",
+  "flake8",
+  "flake8-pyproject",
+  "pytest",
+  "pytest-django",
+]
+nsot = [
+  "nsot>=1.4.6",
+]
+docs = [
+  "sphinx",
+  "sphinx-autobuild",
+  "sphinx-rtd-theme",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "pynsot.__version__"}
+
+[project.scripts]
+nsot = "pynsot.app:app"
+snot = "pynsot.app:app"
+
+[tool.pytest.ini_options]
+django_find_project = "false"
+testpaths = ["tests"]
+addopts = "-vv"
+
+[tool.flake8]
+exclude = [
+  ".git",
+  "__pycache__",
+  "build",
+]

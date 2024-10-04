@@ -13,8 +13,6 @@ to the client constructor::
     AuthTokenClient(url=http://localhost:8990/api)>
 """
 
-from __future__ import unicode_literals
-from __future__ import absolute_import
 import click
 import getpass
 import json
